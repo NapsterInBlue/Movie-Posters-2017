@@ -29,3 +29,8 @@ def show_key_colors(colorList):
                       , fill=tuple(color))
 
     return im
+
+
+def avg_rgb(picVec):
+    fn = lambda arr, i: int(np.average(arr[:, :, i]))
+    return fn(picVec, 0), fn(picVec, 1), fn(picVec, 2)
