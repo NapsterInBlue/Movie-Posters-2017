@@ -4,7 +4,6 @@ import numpy as np
 from sklearn.cluster import KMeans
 
 
-
 def path_to_img_array(path):
     img = Image.open(path)
     vec = np.array(img)    
@@ -16,6 +15,7 @@ def pick_colors(vec, numColors):
     model = KMeans(n_clusters=numColors).fit(vec)
     return model.cluster_centers_
 
+
 def show_key_colors(colorList):
     n = len(colorList)
 
@@ -25,9 +25,7 @@ def show_key_colors(colorList):
     for idx, color in enumerate(colorList):
         color = tuple([int(x) for x in color])
         print(color)
-        print((100*idx, 0), (100*(idx+1), 100*(idx+1)))
         draw.rectangle([(100*idx, 0), (100*(idx+1), 100*(idx+1))]
                       , fill=tuple(color))
 
     return im
-
